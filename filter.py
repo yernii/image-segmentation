@@ -63,6 +63,19 @@ image = cv2.drawContours(image, contours, -1, (0, 255, 0), 2)
 plt.imshow(image)
 plt.show()
 
+img = cv2.imread("DDAB_modified.png")
+img = cv2.imread("1.png")
+gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+thresh = cv2.threshold(gray, 0, 255, cv2.THRESH_OTSU+cv2.THRESH_BINARY_INV)[1]
+contours = cv2.findContours(thresh, cv2.CHAIN_APPROX_NONE, cv2.RETR_TREE)[0]
+cnt = max(contours, key=lambda c: cv2.contourArea(c))
+mask = np.ones((img.shape[:2]), np.uint8)*255
+x, y, w, h = cv2.boundingRect(cnt)
+mask[y:y+h, x:x+w] = gray[y:y+h, x:x+w]
+cv2.imwrite("mask.png", mask)
+cv2.imshow("mask", mask)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
 
 # #4
 # img = cv2.imread('DDAB.png')
