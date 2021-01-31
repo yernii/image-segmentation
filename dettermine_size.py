@@ -24,22 +24,22 @@ for ln in lns:
     max_x = max(x1, x2, max_x)
     max_y = max(y1, y2, max_y)
 
-    # print("Coords: ({}, {})->({}, {})".format(x1, y1, x2, y2))
+    print("Coords: ({}, {})->({}, {})".format(x1, y1, x2, y2))
 
 
-# cv2.line(cpy, pt1=(min_x, min_y), pt2=(max_x, min_y), color=(0, 255, 0), thickness=10)
-# cv2.putText(cpy, '({}, {})'.format(min_x, min_y), (min_x - 10, (min_y - 30)), cv2.FONT_HERSHEY_SIMPLEX, 2,
-#             (0, 255, 0), 3, cv2.LINE_AA)
-# cv2.putText(cpy, '({}, {})'.format(max_x, min_y), (max_x - 340, (min_y - 30)), cv2.FONT_HERSHEY_SIMPLEX, 2,
-#             (0, 255, 0), 3, cv2.LINE_AA)
-# cv2.putText(cpy, '{} pixel'.format((max_x - min_x)), (int((max_x + min_x)/2), (min_y - 30)), cv2.FONT_HERSHEY_SIMPLEX,
-#             2, (0, 255, 0), 3, cv2.LINE_AA)
-# cv2.line(cpy, pt1=(min_x, min_y), pt2=(min_x, max_y), color=(0, 0, 255), thickness=10)
-# cv2.putText(cpy, '({}, {})'.format(min_x, min_y), (min_x - 10, (min_y + 50)), cv2.FONT_HERSHEY_SIMPLEX, 2,
-#             (0, 0, 255), 3, cv2.LINE_AA)
-# cv2.putText(cpy, '({}, {})'.format(min_x, max_y), (min_x - 10, (max_y - 10)), cv2.FONT_HERSHEY_SIMPLEX, 2,
-#             (0, 0, 255), 3, cv2.LINE_AA)
-# cv2.putText(cpy, '{} pixel'.format(max_y - min_y), (min_x - 150, int((max_y + min_y)/2) + 20), cv2.FONT_HERSHEY_SIMPLEX, 2,
-#             (0, 0, 255), 3, cv2.LINE_AA)
-# cv2.imshow("cpy", cpy)
-# cv2.waitKey(0)
+cv2.line(cpy, pt1=(min_x, min_y), pt2=(max_x, min_y), color=(0, 255, 0), thickness=10)
+cv2.putText(cpy, '({}, {})'.format(min_x, min_y), (min_x - 10, (min_y - 30)), cv2.FONT_HERSHEY_SIMPLEX, 2,
+            (0, 255, 0), 3, cv2.LINE_AA)
+cv2.putText(cpy, '({}, {})'.format(max_x, min_y), (max_x - 340, (min_y - 30)), cv2.FONT_HERSHEY_SIMPLEX, 2,
+            (0, 255, 0), 3, cv2.LINE_AA)
+cv2.putText(cpy, '{} pixel'.format((max_x - min_x)), (int((max_x + min_x)/2), (min_y - 30)), cv2.FONT_HERSHEY_SIMPLEX,
+            2, (0, 255, 0), 3, cv2.LINE_AA)
+cv2.line(cpy, pt1=(min_x, min_y), pt2=(min_x, max_y), color=(0, 0, 255), thickness=10)
+cv2.putText(cpy, '({}, {})'.format(min_x, min_y), (min_x - 10, (min_y + 50)), cv2.FONT_HERSHEY_SIMPLEX, 2,
+            (0, 0, 255), 3, cv2.LINE_AA)
+cv2.putText(cpy, '({}, {})'.format(min_x, max_y), (min_x - 10, (max_y - 10)), cv2.FONT_HERSHEY_SIMPLEX, 2,
+            (0, 0, 255), 3, cv2.LINE_AA)
+cv2.putText(cpy, '{} pixel'.format(max_y - min_y), (min_x - 150, int((max_y + min_y)/2) + 20), cv2.FONT_HERSHEY_SIMPLEX, 2,
+            (0, 0, 255), 3, cv2.LINE_AA)
+cv2.imshow("cpy", cpy)
+cv2.waitKey(0)
