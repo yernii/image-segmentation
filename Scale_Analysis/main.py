@@ -1,4 +1,14 @@
 
+import numpy as np
+import cv2
+from matplotlib import pyplot as plt
+import pandas as pd
+import matplotlib.image as mpimg
+from skimage import morphology
+import skimage  
+import math
+
+
 ## 1. read image here
 img = cv2.imread("DSCN2882.JPEG")
 
