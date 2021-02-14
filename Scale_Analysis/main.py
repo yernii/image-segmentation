@@ -76,39 +76,39 @@ for i in range(wR):
         ToAddtoStartBlack = True
         ToAddtoEndBlack = False
 
-# print("startBlackList ",startBlackList)
-# print("endBlackList",endBlackList)
+print("startBlackList ",startBlackList)
+print("endBlackList",endBlackList)
 
 
-# # 2.2 logic for checking unwanted entry of pixels in width check
+# 2.2 logic for checking unwanted entry of pixels in width check
 
-# IndexDimNotToconsider = -1
-# for i in range(7):
-#     engravingWidth = endBlackList[i] - startBlackList[i]
-#     if engravingWidth > 5:
-#         IndexDimNotToconsider = i
-#         break
-# listdistBetEngraving = []
-# if IndexDimNotToconsider == -1:
-#     for i in range(1, 7):
-#         distBetEngraving = startBlackList[i] - startBlackList[i - 1]
-#         listdistBetEngraving.append(distBetEngraving)
+IndexDimNotToconsider = -1
+for i in range(7):
+    engravingWidth = endBlackList[i] - startBlackList[i]
+    if engravingWidth > 5:
+        IndexDimNotToconsider = i
+        break
+listdistBetEngraving = []
+if IndexDimNotToconsider == -1:
+    for i in range(1, 7):
+        distBetEngraving = startBlackList[i] - startBlackList[i - 1]
+        listdistBetEngraving.append(distBetEngraving)
 
-# print("listdistBetEngraving", listdistBetEngraving)
+print("listdistBetEngraving", listdistBetEngraving)
 
-# # 2.3 Finally dist between each engraving is below
-# FinalDistBetweenEngraving = max(listdistBetEngraving, key=listdistBetEngraving.count)
-# print("listdistBetEngraving", FinalDistBetweenEngraving)
+# 2.3 Finally dist between each engraving is below
+FinalDistBetweenEngraving = max(listdistBetEngraving, key=listdistBetEngraving.count)
+print("listdistBetEngraving", FinalDistBetweenEngraving)
 
-# # 2.4 displaying arrow and dimension in pixels in image
-# pt1 = (startBlackList[0], 400)
-# pt2 = (startBlackList[1], 400)
+# 2.4 displaying arrow and dimension in pixels in image
+pt1 = (startBlackList[0], 400)
+pt2 = (startBlackList[1], 400)
 
-# rotated_Org_image = drawArrowedLines(rotated_Org_image, pt1, pt2, FinalDistBetweenEngraving)
-# rotated_Org_image = cv2.putText(rotated_Org_image, f"Resized image to : {w} x {h} pixels", (30, 30),
-#                                 cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 1)
+rotated_Org_image = drawArrowedLines(rotated_Org_image, pt1, pt2, FinalDistBetweenEngraving)
+rotated_Org_image = cv2.putText(rotated_Org_image, f"Resized image to : {w} x {h} pixels", (30, 30),
+                                cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 1)
 
-# cv2.imshow("Thresh", imgThreshold)
+cv2.imshow("Thresh", imgThreshold)
 cv2.imshow("img", img)
 # cv2.imshow("rotated_image",rotated_image)
 cv2.imshow("rotated_Org_image", rotated_Org_image)
