@@ -6,6 +6,8 @@ import pandas as pd
 import matplotlib.image as mpimg
 from skimage import morphology
 import skimage
+#help variable to process multiplee images
+import glob
 #1
 # # img=cv2.imread('DDAB.png')
 # img=cv2.imread('DSCN2879.JPG')
@@ -128,24 +130,26 @@ cv2.destroyAllWindows()
 ##################GaussianBlur approuch####################################
 
 #6
-img = cv2.imread('DDAB.png')
-# img = cv2.resize(imgs, (960, 540))
-gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-blur = cv2.GaussianBlur(gray, (3, 3), 0)
-thresh = cv2.threshold(
-    blur, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)[1]
+for image in glob.glob("pictures/*.JPG"):
+    img = cv2.imread(image)
+    #img = cv2.imread('DDAB.png')
+    # img = cv2.resize(imgs, (960, 540))
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    blur = cv2.GaussianBlur(gray, (3, 3), 0)
+    thresh = cv2.threshold(
+        blur, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)[1]
 
-contours = cv2.findContours(thresh, cv2.CHAIN_APPROX_NONE, cv2.RETR_TREE)[0]
-cnt = max(contours, key=lambda c: cv2.contourArea(c))
-mask = np.ones((img.shape[:2]), np.uint8)*255
-# mask2 = np.zeros((img.shape[:2]), dtype=np.uint8)
-cv2.drawContours(mask, [cnt], -1, (0, 0, 0), -1)
-x, y, w, h = cv2.boundingRect(cnt)
-#print(w,h)
-#mask2[y:y+h, x:x+w] = gray[y:y+h, x:x+w]
+    contours = cv2.findContours(thresh, cv2.CHAIN_APPROX_NONE, cv2.RETR_TREE)[0]
+    cnt = max(contours, key=lambda c: cv2.contourArea(c))
+    mask = np.ones((img.shape[:2]), np.uint8)*255
+    # mask2 = np.zeros((img.shape[:2]), dtype=np.uint8)
+    cv2.drawContours(mask, [cnt], -1, (0, 0, 0), -1)
+    x, y, w, h = cv2.boundingRect(cnt)
+    #print(w,h)
+    #mask2[y:y+h, x:x+w] = gray[y:y+h, x:x+w]
 
-# cv2.imshow('mask2', mask2)
-cv2.imshow('mask', mask)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+    # cv2.imshow('mask2', mask2)
+    cv2.imshow('mask', mask)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
 
