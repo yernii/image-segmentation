@@ -8,21 +8,23 @@ from skimage import morphology
 import skimage
 #help variable to process multiplee images
 import glob
-#1
-# # img=cv2.imread('DDAB.png')
-# img=cv2.imread('DSCN2879.JPG')
-# # img=cv2.imread('DSCN2881.JPG')
-# # img=cv2.imread('DMNAB.png')
-#
-# canny=cv2.Canny(img,80,120)
-# titles=['images', 'canny']
-# images=[img, canny]
-# for i in range(2):
-#     plt.subplot(1,2,i+1), plt.imshow(images[i],'gray')
-#     plt.title(titles[i])
-#     plt.xticks([]),plt.yticks([])
-#
-# plt.show()
+
+
+
+# img=cv2.imread('DDAB.png')
+img=cv2.imread('DSCN2879.JPG')
+# img=cv2.imread('DSCN2881.JPG')
+# img=cv2.imread('DMNAB.png')
+
+canny=cv2.Canny(img,80,120)
+titles=['images', 'canny']
+images=[img, canny]
+for i in range(2):
+    plt.subplot(1,2,i+1), plt.imshow(images[i],'gray')
+    plt.title(titles[i])
+    plt.xticks([]),plt.yticks([])
+
+plt.show()
 
 
 
